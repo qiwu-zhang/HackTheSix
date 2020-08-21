@@ -1,6 +1,7 @@
 import sqlite3 as lite
 
-def create_database(database_path:str):
+
+def create_database(database_path: str):
     conn = lite.connect(database_path)
     with conn:
         cur = conn.cursor()
@@ -12,18 +13,23 @@ def create_database(database_path:str):
     conn.close()
 
 
-def save_info_to_database(database_path:str,userName:str, Password:str):
+def signUp(database_path: str, userName: str, Password: str):
+    conn = lite.connect(database_path)
+    cur = conn.cursor()
+    cur.execute("INSERT INTO loginInfo(userName, Password) VALUES (?,?)", (userName, Password))
+
+
+def LogIn(database_path: str, userName: str, Password: str):
     conn = lite.connect(database_path)
     with conn:
         cur = conn.cursor()
-        #check to see if the user is in there
+        # check to see if the user is in there
         sql = "select count(userName) from loginInfo where userName='" + userName + "'"
         cur.execute(sql)
         count = cur.fetchone()[0]
         if count > 0:
             pass
         else:
-            sql = "insert into loginInfo(userName, Password) values ('" + userName + "'+'" + Password + "')"
-            cur.execute(sql)
+            print("User doesn't exist!")
 
-    print("Use info databse completed")
+
