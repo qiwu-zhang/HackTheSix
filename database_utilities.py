@@ -12,6 +12,10 @@ def create_database(database_path: str):
 
 
 def insert_User(database_path: str, userName: str, Password: str):
+    print(userName)
+    print(Password)
     conn = lite.connect(database_path)
     cur = conn.cursor()
-    cur.execute("INSERT INTO userInfo(userName, Password) VALUES (?,?)", (userName, Password))
+    cur.execute("insert into userInfo(userName, Password) values (?,?)", (userName, Password))
+    conn.commit()
+    conn.close()
