@@ -4,3 +4,5 @@ class Financial_Data:
         self.housing = housing
         self.misc = misc
         self.income = income
+        self.totalExpenses = self.food+self.housing+self.misc
+        

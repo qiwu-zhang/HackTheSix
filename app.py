@@ -3,7 +3,7 @@ import argparse
 import requests
 from bs4 import BeautifulSoup
 from flask import Flask, render_template, redirect
-from flask import request, flash, url_for
+from flask import request, flash, url_for, session
 from wtforms import Form, TextField
 import web_scraping_utilities
 from enum import IntEnum
@@ -74,20 +74,44 @@ def input_form():
             feedback = f"Missing fields for {', '.join(missing)}"
             return render_template("inputForm.html", feedback=feedback)
         else:
-            currData = fData()
-            currData.income = request.form.get("income")
-            currData.food = request.form.get("food")
-            currData.housing = request.form.get("housing")
-            currData.misc = request.form.get("misc")
-            tIncome =  request.form.get("income")
-            return redirect(url_for('results', tIncome=tIncome))
+            # currData = fData()
+            # currData.income = request.form.get("income")
+            # currData.food = request.form.get("food")
+            # currData.housing = request.form.get("housing")
+            # currData.misc = request.form.get("misc")
+            # session['currData'] = currData
+
+            
+            income =  request.form.get("income")
+            food = request.form.get("food")
+            # housing=request.form.get("housing")
+            session['housing'] = request.form.get("housing")
+            session['misc'] = request.form.get("misc")
+
+
+            return redirect(url_for('results', income=income, food=food))
         return redirect(request.url)
     return render_template("inputForm.html")
 
 @app.route('/results')
 def results():
-    income=request.args.get('tIncome', None)
-    return render_template("results.html", income=income)
+    # currData = fData()
+
+    income=request.args.get('income', None)
+    food=request.args.get('food', None)
+    housing = session.get('housing', None)
+    misc = session.get('misc', None)
+
+    print(food,housing, misc)
+    income=int(income)
+    food=int(food)
+    housing=int(housing)
+    misc=int(misc)
+    currData = fData(food, housing, misc, income)
+    totalExpenses=food+housing+misc
+    # currData = session.get('currData', None)
+    # income = currData.income
+    return render_template("results.html", currData=currData)
 
 
 

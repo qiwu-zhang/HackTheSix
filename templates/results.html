@@ -3,7 +3,14 @@
   <body>
     <h3>Results page</h3>
     <p>
-      Entered income: {{ income }}
+      Entered income: {{ currData.income }}
+      Total expenses: {{ currData.totalExpenses}}
+      Money left after expenses: {{ currData.income- currData.totalExpenses}}
+
+      <!-- Housing should be 25% to 35% of your monthly income and yours is {{ housingPercent}} %.
+      Food should be 10% to 15% of your monthly income and yours is {{foodPercent}} %. -->
+
+      
     </p>
   </body>
 </html>
