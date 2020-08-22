@@ -9,21 +9,21 @@ app = Flask(__name__)
 
 @app.route('/', methods=['POST', 'GET'])
 def hello_world():
-    return render_template('index.html')
-    #if request.method == 'POST':
+    if request.method == 'POST':
+        email = request.form['email']
+        password = request.form['password']
+        os.chdir(os.path.dirname(__file__))
+        path = os.path.join(os.getcwd(), "LoginInfo.db")
+        dbHandler.insert_User(database_path=path, userName=email, Password=password)
+        return render_template('signlog.html')
 
-        #email = request.form['email']
-        #password = request.form['password']
-        #os.chdir(os.path.dirname(__file__))
-        #path = os.path.join(os.getcwd(),"LoginInfo.db")
-        #dbHandler.insert_User(database_path=path, userName=email, Password=password)
-        #return render_template('signlog.html')
-
-    #else:
-       #email = request.form['email']
-       #password = request.form['password']
-       #return render_template('signlog.html')
-
+    else:
+        email = request.form['email']
+        password = request.form['password']
+        os.chdir(os.path.dirname(__file__))
+        path = os.path.join(os.getcwd(), "LoginInfo.db")
+        dbHandler.login(database_path=path, userName=email, Password=password)
+        return render_template('signlog.html')
 
 
 if __name__ == '__main__':
