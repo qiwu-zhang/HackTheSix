@@ -11,23 +11,30 @@ app.config['SECRET_KEY'] = '7d441f27d441f27567d441f2b6176a'
 
 
 @app.route('/', methods=['POST', 'GET'])
-def hello_world():
+def second_step():
+    print("first step")
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
         os.chdir(os.path.dirname(__file__))
         path = os.path.join(os.getcwd(), "LoginInfo.db")
-        dbHandler.insert_User(database_path=path, userName=email, Password=password)
-        return render_template('signlog.html')
+        if dbHandler.login(database_path=path, userName=email, Password=password) == 0:
+            print("user doesn't exist")
+            dbHandler.insert_User(database_path=path, userName=email, Password=password)
+        if dbHandler.login(database_path=path, userName=email, Password=password) == 1:
+            print("login successfully")
+            return redirect('/dashboard')
+        else:
+            return redirect('/dashboard')
 
     else:
         return render_template('signlog.html')
-        email = request.form['email']
-        password = request.form['password']
-        os.chdir(os.path.dirname(__file__))
-        path = os.path.join(os.getcwd(), "LoginInfo.db")
-        dbHandler.login(database_path=path, userName=email, Password=password)
-        
+
+
+@app.route('/dashboard', methods=['POST', 'GET'])
+def dashboard():
+    return render_template('index.html')
+
 
 
 @app.route('/inputForm', methods = ["GET", "POST"])
