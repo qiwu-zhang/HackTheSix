@@ -3,11 +3,11 @@ import argparse
 from bs4 import BeautifulSoup
 from flask import Flask, render_template, redirect
 from flask import request
-<<<<<<< HEAD
+
 import web_scraping_utilities
-=======
+
 from enum import IntEnum
->>>>>>> e65fce831ee299f170f2b2ccf5659b105f4d1377
+
 import database_utilities as dbHandler
 
 app = Flask(__name__)
