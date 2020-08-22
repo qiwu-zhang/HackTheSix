@@ -20,23 +20,36 @@ def insert_User(database_path: str, userName: str, Password: str):
 
 
 def login(database_path: str, userName: str, Password: str):
+    print("%s" % userName)
+    print("%s" % Password)
     conn = lite.connect(database_path)
     cur = conn.cursor()
     try:
-        userName_collection = cur.execute("select userName from userInfo")
+        cur.execute("select userName from userInfo")
+        userName_collection = cur.fetchall()
+        print("in the userName_collection we have ")
+        print("%s" % userName_collection)
+
         for row in userName_collection:
             if userName in row:
                 print("%s" % userName)
-                pw = cur.execute("select Password from userInfo WHERE userName = ?", (userName,))
+                cur.execute("select Password from userInfo WHERE userName = ?", (userName,))
+                pw = cur.fetchall()
+                print("%s" % pw)
+
                 if Password in pw:
                     print("login successful")
                     conn.commit()
                     conn.close()
                     return 1
-        print("Username is incorrect")
+                else:
+                    print("password isn't correct")
 
-    except IOError:
-        print("something's wrong")
+            else:
+                print("Username does not exist")
+
+    except IOError as e:
+        print(e)
     conn.commit()
     conn.close()
     return 0

@@ -8,8 +8,7 @@ app = Flask(__name__)
 
 
 @app.route('/', methods=['POST', 'GET'])
-def second_step():
-    print("first step")
+def first_step():
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
