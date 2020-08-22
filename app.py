@@ -18,12 +18,13 @@ def hello_world():
         return render_template('signlog.html')
 
     else:
+        return render_template('signlog.html')
         email = request.form['email']
         password = request.form['password']
         os.chdir(os.path.dirname(__file__))
         path = os.path.join(os.getcwd(), "LoginInfo.db")
         dbHandler.login(database_path=path, userName=email, Password=password)
-        return render_template('signlog.html')
+        #dbHandler.update_profile()
 
 
 if __name__ == '__main__':
