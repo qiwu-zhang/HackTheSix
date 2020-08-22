@@ -3,7 +3,7 @@ import argparse
 import requests
 from bs4 import BeautifulSoup
 from flask import Flask, render_template, redirect
-from flask import request, flash
+from flask import request, flash, url_for
 from wtforms import Form, TextField
 import web_scraping_utilities
 from enum import IntEnum
@@ -64,16 +64,30 @@ def main(url_list_file:str):
 def input_form():
     if request.method == "POST":
         req = request.form
-        food = request.form.get("food")
-        housing = request.form.get("housing")
-        misc = request.form.get("misc")
-        print(req)
+        missing = list()
+        
+        for k,v in req.items():
+            if v == "":
+                missing.append(k)
+        
+        if missing:
+            feedback = f"Missing fields for {', '.join(missing)}"
+            return render_template("inputForm.html", feedback=feedback)
+        else:
+            currData = fData()
+            currData.income = request.form.get("income")
+            currData.food = request.form.get("food")
+            currData.housing = request.form.get("housing")
+            currData.misc = request.form.get("misc")
+            tIncome =  request.form.get("income")
+            return redirect(url_for('results', tIncome=tIncome))
         return redirect(request.url)
     return render_template("inputForm.html")
 
-@app.route('/done')
-def place_holder():
-    return render_template("tables.html")
+@app.route('/results')
+def results():
+    income=request.args.get('tIncome', None)
+    return render_template("results.html", income=income)
 
 
 

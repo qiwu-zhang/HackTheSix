@@ -6,6 +6,11 @@
         <form action="/inputForm" method="POST">
 
             <div class="form-group">
+              <label>Enter Monthly Income</label>
+              <input type="number" class="form-control" id="income" name="income" placeholder="$###">
+            </div>
+
+            <div class="form-group">
               <label>Enter Monthly Food Expenses</label>
               <input type="number" class="form-control" id="food" name="food" placeholder="$###">
             </div>
@@ -19,7 +24,10 @@
               <label>Enter Monthly Miscellaneous Expenses</label>
               <input type="number" class="form-control" id="misc" name="misc" placeholder="$###">
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary" style="color:thistle">Submit</button>
+            {% if feedback %}
+            <p class="text-danger float-right">{{ feedback }}</p>
+            {% endif %}
           </form>
       </div>
     </div>
