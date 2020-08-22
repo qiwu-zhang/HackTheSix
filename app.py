@@ -32,6 +32,13 @@ def hello_world():
 
 @app.route('/inputForm', methods = ["GET", "POST"])
 def input_form():
+    if request.method == "POST":
+        req = request.form
+        food = request.form.get("food")
+        housing = request.form.get("housing")
+        misc = request.form.get("misc")
+        print(req)
+        return redirect(request.url)
     return render_template("inputForm.html")
 
 @app.route('/done')
