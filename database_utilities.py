@@ -30,13 +30,16 @@ def login(database_path: str, userName: str, Password: str):
                 pw = cur.execute("select Password from userInfo WHERE userName = ?", (userName,))
                 if Password in pw:
                     print("login successful")
+                    conn.commit()
+                    conn.close()
                     return 1
         print("Username is incorrect")
+
     except IOError:
         print("something's wrong")
     conn.commit()
     conn.close()
-    print("login successful")
+    return 0
 
 
 def update_profile(database_path: str, userName: str, age: int, city: str, monthly_income:int, yearly_income:int,saving_goal:int):
