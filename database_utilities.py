@@ -18,6 +18,13 @@ def create_table():
     cur.execute(ddl)
 
 
+def create_table_saving_plans():
+    cur.execute("drop table if exists savingPlans")
+    ddl = "create table savingPlans(name text not null,type text not null,rate integer not null);"
+    cur.execute(ddl)
+
+
+
 def insert_User(userName: str, Password: str):
     try: 
         cur.execute("insert into userInfo(userName, Password) values (?,?)", (userName, Password))
