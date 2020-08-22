@@ -24,7 +24,7 @@ def hello_world():
         os.chdir(os.path.dirname(__file__))
         path = os.path.join(os.getcwd(), "LoginInfo.db")
         dbHandler.login(database_path=path, userName=email, Password=password)
-        #dbHandler.update_profile()
+        
 
 
 if __name__ == '__main__':
