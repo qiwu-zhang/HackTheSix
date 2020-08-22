@@ -8,6 +8,7 @@ from wtforms import Form, TextField
 import web_scraping_utilities
 from enum import IntEnum
 import database_utilities as dbHandler
+from classDefs import Financial_Data as fData
 
 app = Flask(__name__)
 app.config.from_object(__name__)
@@ -16,6 +17,8 @@ app.config['SECRET_KEY'] = '7d441f27d441f27567d441f2b6176a'
 class LOGIN_STATE(IntEnum):
     USER_DOESNT_EXIST = 0
     USER_EXISTS = 1
+
+
 
 @app.before_request
 def before_request():
