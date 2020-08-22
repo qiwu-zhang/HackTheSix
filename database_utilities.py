@@ -39,11 +39,14 @@ def login(database_path: str, userName: str, Password: str):
     print("login successful")
 
 
-def update_profile(database_path: str, userName: str, age: int, city: str, monthly_income:int, early_income:int,saving_goal:int):
+def update_profile(database_path: str, userName: str, age: int, city: str, monthly_income:int, yearly_income:int,saving_goal:int):
     conn = lite.connect(database_path)
     cur = conn.cursor()
-    cur.execute("UPDATE userInfo SET age = ?, city = ?, monthly_income = ? WHERE userName = ?", (age, city,monthly_income,userName,))
-    cur.execute("UPDATE userInfo SET early_income = ?, saving_goal = ? WHERE userName = ?", (early_income,saving_goal,userName))
+    cur.execute('''UPDATE userInfo SET age = ? WHERE userName = ?''', (age, userName))
+    cur.execute('''UPDATE userInfo SET city = ? WHERE userName = ?''', (city, userName))
+    cur.execute('''UPDATE userInfo SET monthly_income = ? WHERE userName = ?''', (monthly_income, userName))
+    cur.execute('''UPDATE userInfo SET yearly_income = ? WHERE userName = ?''', (yearly_income, userName))
+    cur.execute('''UPDATE userInfo SET saving_goal = ? WHERE userName = ?''', (saving_goal, userName))
     conn.commit()
     conn.close()
 
