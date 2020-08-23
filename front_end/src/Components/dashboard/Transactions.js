@@ -7,10 +7,7 @@ import Button from "@material-ui/core/Button";
 const Transactions = () => {
     const [publicTokenG, setPublicTokenG] = useState("");
     const [linkToken, setLinkToken] = useState("");
-    const onSuccess = useCallback((token, metadata) => {
-        axios.post("/api/set_access_token", { public_token: token });
-        setPublicTokenG(token);
-    }, []);
+    const [data, setData] = useState({});
         
     useEffect(() => {
         async function fetchData(){    
@@ -20,6 +17,11 @@ const Transactions = () => {
                 else alert("Not ok!"); return;
             })
             .then(data => setLinkToken(data["link_token"]));
+
+            await axios.post("/api/set_access_token", { public_token: token });
+            setPublicTokenG(token);
+
+            await fetch("/")
         }
         fetchData();
     }, []);
