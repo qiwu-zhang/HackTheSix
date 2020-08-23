@@ -1,0 +1,504 @@
+INFO Synset('payment.n.01') and Synset('food.n.01') compare: 
+ 	 Score: 0.15 
+
+INFO Synset('payment.n.01') and Synset('travel.n.01') compare: 
+ 	 Score: 0.24 
+
+INFO Synset('payment.n.01') and Synset('housing.n.01') compare: 
+ 	 Score: 0.13 
+
+INFO Synset('payment.n.01') and Synset('leisure.n.01') compare: 
+ 	 Score: 0.27 
+
+INFO Synset('payment.n.01') and Synset('clothing.n.01') compare: 
+ 	 Score: 0.13 
+
+INFO Synset('shop.n.01') and Synset('food.n.01') compare: 
+ 	 Score: 0.27 
+
+INFO Synset('shop.n.01') and Synset('travel.n.01') compare: 
+ 	 Score: 0.11 
+
+INFO Synset('shop.n.01') and Synset('housing.n.01') compare: 
+ 	 Score: 0.71 
+
+INFO Synset('shop.n.01') and Synset('leisure.n.01') compare: 
+ 	 Score: 0.12 
+
+INFO Synset('shop.n.01') and Synset('clothing.n.01') compare: 
+ 	 Score: 0.59 
+
+INFO Synset('payment.n.01') and Synset('food.n.01') compare: 
+ 	 Score: 0.15 
+
+INFO Synset('payment.n.01') and Synset('travel.n.01') compare: 
+ 	 Score: 0.24 
+
+INFO Synset('payment.n.01') and Synset('housing.n.01') compare: 
+ 	 Score: 0.13 
+
+INFO Synset('payment.n.01') and Synset('leisure.n.01') compare: 
+ 	 Score: 0.27 
+
+INFO Synset('payment.n.01') and Synset('clothing.n.01') compare: 
+ 	 Score: 0.13 
+
+INFO Synset('travel.n.01') and Synset('food.n.01') compare: 
+ 	 Score: 0.14 
+
+INFO Synset('travel.n.01') and Synset('travel.n.01') compare: 
+ 	 Score: 1.00 
+
+INFO Synset('travel.n.01') and Synset('housing.n.01') compare: 
+ 	 Score: 0.12 
+
+INFO Synset('travel.n.01') and Synset('leisure.n.01') compare: 
+ 	 Score: 0.25 
+
+INFO Synset('travel.n.01') and Synset('clothing.n.01') compare: 
+ 	 Score: 0.12 
+
+INFO Synset('transportation.n.02') and Synset('food.n.01') compare: 
+ 	 Score: 0.14 
+
+INFO Synset('transportation.n.02') and Synset('travel.n.01') compare: 
+ 	 Score: 0.78 
+
+INFO Synset('transportation.n.02') and Synset('housing.n.01') compare: 
+ 	 Score: 0.12 
+
+INFO Synset('transportation.n.02') and Synset('leisure.n.01') compare: 
+ 	 Score: 0.25 
+
+INFO Synset('transportation.n.02') and Synset('clothing.n.01') compare: 
+ 	 Score: 0.12 
+
+INFO Synset('transportation.n.02') and Synset('food.n.01') compare: 
+ 	 Score: 0.14 
+
+INFO Synset('transportation.n.02') and Synset('travel.n.01') compare: 
+ 	 Score: 0.78 
+
+INFO Synset('transportation.n.02') and Synset('housing.n.01') compare: 
+ 	 Score: 0.12 
+
+INFO Synset('transportation.n.02') and Synset('leisure.n.01') compare: 
+ 	 Score: 0.25 
+
+INFO Synset('transportation.n.02') and Synset('clothing.n.01') compare: 
+ 	 Score: 0.12 
+
+INFO Synset('diversion.n.01') and Synset('food.n.01') compare: 
+ 	 Score: 0.17 
+
+INFO Synset('diversion.n.01') and Synset('travel.n.01') compare: 
+ 	 Score: 0.62 
+
+INFO Synset('diversion.n.01') and Synset('housing.n.01') compare: 
+ 	 Score: 0.14 
+
+INFO Synset('diversion.n.01') and Synset('leisure.n.01') compare: 
+ 	 Score: 0.29 
+
+INFO Synset('diversion.n.01') and Synset('clothing.n.01') compare: 
+ 	 Score: 0.14 
+
+INFO Synset('travel.n.01') and Synset('food.n.01') compare: 
+ 	 Score: 0.14 
+
+INFO Synset('travel.n.01') and Synset('travel.n.01') compare: 
+ 	 Score: 1.00 
+
+INFO Synset('travel.n.01') and Synset('housing.n.01') compare: 
+ 	 Score: 0.12 
+
+INFO Synset('travel.n.01') and Synset('leisure.n.01') compare: 
+ 	 Score: 0.25 
+
+INFO Synset('travel.n.01') and Synset('clothing.n.01') compare: 
+ 	 Score: 0.12 
+
+INFO Synset('transportation.n.02') and Synset('food.n.01') compare: 
+ 	 Score: 0.14 
+
+INFO Synset('transportation.n.02') and Synset('travel.n.01') compare: 
+ 	 Score: 0.78 
+
+INFO Synset('transportation.n.02') and Synset('housing.n.01') compare: 
+ 	 Score: 0.12 
+
+INFO Synset('transportation.n.02') and Synset('leisure.n.01') compare: 
+ 	 Score: 0.25 
+
+INFO Synset('transportation.n.02') and Synset('clothing.n.01') compare: 
+ 	 Score: 0.12 
+
+INFO Synset('travel.n.01') and Synset('food.n.01') compare: 
+ 	 Score: 0.14 
+
+INFO Synset('travel.n.01') and Synset('travel.n.01') compare: 
+ 	 Score: 1.00 
+
+INFO Synset('travel.n.01') and Synset('housing.n.01') compare: 
+ 	 Score: 0.12 
+
+INFO Synset('travel.n.01') and Synset('leisure.n.01') compare: 
+ 	 Score: 0.25 
+
+INFO Synset('travel.n.01') and Synset('clothing.n.01') compare: 
+ 	 Score: 0.12 
+
+INFO Synset('travel.n.01') and Synset('food.n.01') compare: 
+ 	 Score: 0.14 
+
+INFO Synset('travel.n.01') and Synset('travel.n.01') compare: 
+ 	 Score: 1.00 
+
+INFO Synset('travel.n.01') and Synset('housing.n.01') compare: 
+ 	 Score: 0.12 
+
+INFO Synset('travel.n.01') and Synset('leisure.n.01') compare: 
+ 	 Score: 0.25 
+
+INFO Synset('travel.n.01') and Synset('clothing.n.01') compare: 
+ 	 Score: 0.12 
+
+INFO 127.0.0.1 - - [23/Aug/2020 04:55:04] "[37mGET /api/transactions HTTP/1.1[0m" 200 -
+INFO 127.0.0.1 - - [23/Aug/2020 04:56:05] "[37mPOST /login HTTP/1.1[0m" 200 -
+INFO 127.0.0.1 - - [23/Aug/2020 04:56:09] "[37mPOST /api/create_link_token HTTP/1.1[0m" 200 -
+INFO 127.0.0.1 - - [23/Aug/2020 04:56:29] "[37mPOST /api/set_access_token HTTP/1.1[0m" 200 -
+INFO Synset('payment.n.01') and Synset('food.n.01') compare: 
+ 	 Score: 0.15 
+
+INFO Synset('payment.n.01') and Synset('travel.n.01') compare: 
+ 	 Score: 0.24 
+
+INFO Synset('payment.n.01') and Synset('housing.n.01') compare: 
+ 	 Score: 0.13 
+
+INFO Synset('payment.n.01') and Synset('leisure.n.01') compare: 
+ 	 Score: 0.27 
+
+INFO Synset('payment.n.01') and Synset('clothing.n.01') compare: 
+ 	 Score: 0.13 
+
+INFO Synset('shop.n.01') and Synset('food.n.01') compare: 
+ 	 Score: 0.27 
+
+INFO Synset('shop.n.01') and Synset('travel.n.01') compare: 
+ 	 Score: 0.11 
+
+INFO Synset('shop.n.01') and Synset('housing.n.01') compare: 
+ 	 Score: 0.71 
+
+INFO Synset('shop.n.01') and Synset('leisure.n.01') compare: 
+ 	 Score: 0.12 
+
+INFO Synset('shop.n.01') and Synset('clothing.n.01') compare: 
+ 	 Score: 0.59 
+
+INFO Synset('payment.n.01') and Synset('food.n.01') compare: 
+ 	 Score: 0.15 
+
+INFO Synset('payment.n.01') and Synset('travel.n.01') compare: 
+ 	 Score: 0.24 
+
+INFO Synset('payment.n.01') and Synset('housing.n.01') compare: 
+ 	 Score: 0.13 
+
+INFO Synset('payment.n.01') and Synset('leisure.n.01') compare: 
+ 	 Score: 0.27 
+
+INFO Synset('payment.n.01') and Synset('clothing.n.01') compare: 
+ 	 Score: 0.13 
+
+INFO Synset('travel.n.01') and Synset('food.n.01') compare: 
+ 	 Score: 0.14 
+
+INFO Synset('travel.n.01') and Synset('travel.n.01') compare: 
+ 	 Score: 1.00 
+
+INFO Synset('travel.n.01') and Synset('housing.n.01') compare: 
+ 	 Score: 0.12 
+
+INFO Synset('travel.n.01') and Synset('leisure.n.01') compare: 
+ 	 Score: 0.25 
+
+INFO Synset('travel.n.01') and Synset('clothing.n.01') compare: 
+ 	 Score: 0.12 
+
+INFO Synset('transportation.n.02') and Synset('food.n.01') compare: 
+ 	 Score: 0.14 
+
+INFO Synset('transportation.n.02') and Synset('travel.n.01') compare: 
+ 	 Score: 0.78 
+
+INFO Synset('transportation.n.02') and Synset('housing.n.01') compare: 
+ 	 Score: 0.12 
+
+INFO Synset('transportation.n.02') and Synset('leisure.n.01') compare: 
+ 	 Score: 0.25 
+
+INFO Synset('transportation.n.02') and Synset('clothing.n.01') compare: 
+ 	 Score: 0.12 
+
+INFO Synset('transportation.n.02') and Synset('food.n.01') compare: 
+ 	 Score: 0.14 
+
+INFO Synset('transportation.n.02') and Synset('travel.n.01') compare: 
+ 	 Score: 0.78 
+
+INFO Synset('transportation.n.02') and Synset('housing.n.01') compare: 
+ 	 Score: 0.12 
+
+INFO Synset('transportation.n.02') and Synset('leisure.n.01') compare: 
+ 	 Score: 0.25 
+
+INFO Synset('transportation.n.02') and Synset('clothing.n.01') compare: 
+ 	 Score: 0.12 
+
+INFO Synset('diversion.n.01') and Synset('food.n.01') compare: 
+ 	 Score: 0.17 
+
+INFO Synset('diversion.n.01') and Synset('travel.n.01') compare: 
+ 	 Score: 0.62 
+
+INFO Synset('diversion.n.01') and Synset('housing.n.01') compare: 
+ 	 Score: 0.14 
+
+INFO Synset('diversion.n.01') and Synset('leisure.n.01') compare: 
+ 	 Score: 0.29 
+
+INFO Synset('diversion.n.01') and Synset('clothing.n.01') compare: 
+ 	 Score: 0.14 
+
+INFO Synset('travel.n.01') and Synset('food.n.01') compare: 
+ 	 Score: 0.14 
+
+INFO Synset('travel.n.01') and Synset('travel.n.01') compare: 
+ 	 Score: 1.00 
+
+INFO Synset('travel.n.01') and Synset('housing.n.01') compare: 
+ 	 Score: 0.12 
+
+INFO Synset('travel.n.01') and Synset('leisure.n.01') compare: 
+ 	 Score: 0.25 
+
+INFO Synset('travel.n.01') and Synset('clothing.n.01') compare: 
+ 	 Score: 0.12 
+
+INFO Synset('transportation.n.02') and Synset('food.n.01') compare: 
+ 	 Score: 0.14 
+
+INFO Synset('transportation.n.02') and Synset('travel.n.01') compare: 
+ 	 Score: 0.78 
+
+INFO Synset('transportation.n.02') and Synset('housing.n.01') compare: 
+ 	 Score: 0.12 
+
+INFO Synset('transportation.n.02') and Synset('leisure.n.01') compare: 
+ 	 Score: 0.25 
+
+INFO Synset('transportation.n.02') and Synset('clothing.n.01') compare: 
+ 	 Score: 0.12 
+
+INFO Synset('travel.n.01') and Synset('food.n.01') compare: 
+ 	 Score: 0.14 
+
+INFO Synset('travel.n.01') and Synset('travel.n.01') compare: 
+ 	 Score: 1.00 
+
+INFO Synset('travel.n.01') and Synset('housing.n.01') compare: 
+ 	 Score: 0.12 
+
+INFO Synset('travel.n.01') and Synset('leisure.n.01') compare: 
+ 	 Score: 0.25 
+
+INFO Synset('travel.n.01') and Synset('clothing.n.01') compare: 
+ 	 Score: 0.12 
+
+INFO Synset('travel.n.01') and Synset('food.n.01') compare: 
+ 	 Score: 0.14 
+
+INFO Synset('travel.n.01') and Synset('travel.n.01') compare: 
+ 	 Score: 1.00 
+
+INFO Synset('travel.n.01') and Synset('housing.n.01') compare: 
+ 	 Score: 0.12 
+
+INFO Synset('travel.n.01') and Synset('leisure.n.01') compare: 
+ 	 Score: 0.25 
+
+INFO Synset('travel.n.01') and Synset('clothing.n.01') compare: 
+ 	 Score: 0.12 
+
+INFO 127.0.0.1 - - [23/Aug/2020 04:56:31] "[37mGET /api/transactions HTTP/1.1[0m" 200 -
+INFO 127.0.0.1 - - [23/Aug/2020 04:57:37] "[37mPOST /login HTTP/1.1[0m" 200 -
+INFO 127.0.0.1 - - [23/Aug/2020 04:57:40] "[37mPOST /api/create_link_token HTTP/1.1[0m" 200 -
+INFO 127.0.0.1 - - [23/Aug/2020 04:57:52] "[37mPOST /api/set_access_token HTTP/1.1[0m" 200 -
+INFO Synset('payment.n.01') and Synset('food.n.01') compare: 
+ 	 Score: 0.15 
+
+INFO Synset('payment.n.01') and Synset('travel.n.01') compare: 
+ 	 Score: 0.24 
+
+INFO Synset('payment.n.01') and Synset('housing.n.01') compare: 
+ 	 Score: 0.13 
+
+INFO Synset('payment.n.01') and Synset('leisure.n.01') compare: 
+ 	 Score: 0.27 
+
+INFO Synset('payment.n.01') and Synset('clothing.n.01') compare: 
+ 	 Score: 0.13 
+
+INFO Synset('shop.n.01') and Synset('food.n.01') compare: 
+ 	 Score: 0.27 
+
+INFO Synset('shop.n.01') and Synset('travel.n.01') compare: 
+ 	 Score: 0.11 
+
+INFO Synset('shop.n.01') and Synset('housing.n.01') compare: 
+ 	 Score: 0.71 
+
+INFO Synset('shop.n.01') and Synset('leisure.n.01') compare: 
+ 	 Score: 0.12 
+
+INFO Synset('shop.n.01') and Synset('clothing.n.01') compare: 
+ 	 Score: 0.59 
+
+INFO Synset('payment.n.01') and Synset('food.n.01') compare: 
+ 	 Score: 0.15 
+
+INFO Synset('payment.n.01') and Synset('travel.n.01') compare: 
+ 	 Score: 0.24 
+
+INFO Synset('payment.n.01') and Synset('housing.n.01') compare: 
+ 	 Score: 0.13 
+
+INFO Synset('payment.n.01') and Synset('leisure.n.01') compare: 
+ 	 Score: 0.27 
+
+INFO Synset('payment.n.01') and Synset('clothing.n.01') compare: 
+ 	 Score: 0.13 
+
+INFO Synset('travel.n.01') and Synset('food.n.01') compare: 
+ 	 Score: 0.14 
+
+INFO Synset('travel.n.01') and Synset('travel.n.01') compare: 
+ 	 Score: 1.00 
+
+INFO Synset('travel.n.01') and Synset('housing.n.01') compare: 
+ 	 Score: 0.12 
+
+INFO Synset('travel.n.01') and Synset('leisure.n.01') compare: 
+ 	 Score: 0.25 
+
+INFO Synset('travel.n.01') and Synset('clothing.n.01') compare: 
+ 	 Score: 0.12 
+
+INFO Synset('transportation.n.02') and Synset('food.n.01') compare: 
+ 	 Score: 0.14 
+
+INFO Synset('transportation.n.02') and Synset('travel.n.01') compare: 
+ 	 Score: 0.78 
+
+INFO Synset('transportation.n.02') and Synset('housing.n.01') compare: 
+ 	 Score: 0.12 
+
+INFO Synset('transportation.n.02') and Synset('leisure.n.01') compare: 
+ 	 Score: 0.25 
+
+INFO Synset('transportation.n.02') and Synset('clothing.n.01') compare: 
+ 	 Score: 0.12 
+
+INFO Synset('transportation.n.02') and Synset('food.n.01') compare: 
+ 	 Score: 0.14 
+
+INFO Synset('transportation.n.02') and Synset('travel.n.01') compare: 
+ 	 Score: 0.78 
+
+INFO Synset('transportation.n.02') and Synset('housing.n.01') compare: 
+ 	 Score: 0.12 
+
+INFO Synset('transportation.n.02') and Synset('leisure.n.01') compare: 
+ 	 Score: 0.25 
+
+INFO Synset('transportation.n.02') and Synset('clothing.n.01') compare: 
+ 	 Score: 0.12 
+
+INFO Synset('diversion.n.01') and Synset('food.n.01') compare: 
+ 	 Score: 0.17 
+
+INFO Synset('diversion.n.01') and Synset('travel.n.01') compare: 
+ 	 Score: 0.62 
+
+INFO Synset('diversion.n.01') and Synset('housing.n.01') compare: 
+ 	 Score: 0.14 
+
+INFO Synset('diversion.n.01') and Synset('leisure.n.01') compare: 
+ 	 Score: 0.29 
+
+INFO Synset('diversion.n.01') and Synset('clothing.n.01') compare: 
+ 	 Score: 0.14 
+
+INFO Synset('travel.n.01') and Synset('food.n.01') compare: 
+ 	 Score: 0.14 
+
+INFO Synset('travel.n.01') and Synset('travel.n.01') compare: 
+ 	 Score: 1.00 
+
+INFO Synset('travel.n.01') and Synset('housing.n.01') compare: 
+ 	 Score: 0.12 
+
+INFO Synset('travel.n.01') and Synset('leisure.n.01') compare: 
+ 	 Score: 0.25 
+
+INFO Synset('travel.n.01') and Synset('clothing.n.01') compare: 
+ 	 Score: 0.12 
+
+INFO Synset('transportation.n.02') and Synset('food.n.01') compare: 
+ 	 Score: 0.14 
+
+INFO Synset('transportation.n.02') and Synset('travel.n.01') compare: 
+ 	 Score: 0.78 
+
+INFO Synset('transportation.n.02') and Synset('housing.n.01') compare: 
+ 	 Score: 0.12 
+
+INFO Synset('transportation.n.02') and Synset('leisure.n.01') compare: 
+ 	 Score: 0.25 
+
+INFO Synset('transportation.n.02') and Synset('clothing.n.01') compare: 
+ 	 Score: 0.12 
+
+INFO Synset('travel.n.01') and Synset('food.n.01') compare: 
+ 	 Score: 0.14 
+
+INFO Synset('travel.n.01') and Synset('travel.n.01') compare: 
+ 	 Score: 1.00 
+
+INFO Synset('travel.n.01') and Synset('housing.n.01') compare: 
+ 	 Score: 0.12 
+
+INFO Synset('travel.n.01') and Synset('leisure.n.01') compare: 
+ 	 Score: 0.25 
+
+INFO Synset('travel.n.01') and Synset('clothing.n.01') compare: 
+ 	 Score: 0.12 
+
+INFO Synset('travel.n.01') and Synset('food.n.01') compare: 
+ 	 Score: 0.14 
+
+INFO Synset('travel.n.01') and Synset('travel.n.01') compare: 
+ 	 Score: 1.00 
+
+INFO Synset('travel.n.01') and Synset('housing.n.01') compare: 
+ 	 Score: 0.12 
+
+INFO Synset('travel.n.01') and Synset('leisure.n.01') compare: 
+ 	 Score: 0.25 
+
+INFO Synset('travel.n.01') and Synset('clothing.n.01') compare: 
+ 	 Score: 0.12 
+
+INFO 127.0.0.1 - - [23/Aug/2020 04:57:54] "[37mGET /api/transactions HTTP/1.1[0m" 200 -
