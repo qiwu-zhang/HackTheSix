@@ -2,6 +2,7 @@ import re
 import string
 import requests
 from urllib.request import urlopen
+import database_utilities as dbHandler
 
 from bs4 import BeautifulSoup
 
@@ -16,15 +17,12 @@ def load_urls_from_file(file_path: str):
         exit(2)
 
 
-
-def scrape_page(url: str):
-    response = request.get(url)
-    soup = BeautifulSoup(response.text, "lxml")
-    name = soup.find_all('span', class_= "provider-name ng-binding")
-    type = soup.find_all('h1', class_='ng-scope')
-    rate = soup.find_all('span', class_= 'ng-binding')
-    for i in range(0,len(name)):
-        print(type)
+def scrape_page(page_contents: str):
+    soup = BeautifulSoup(page_contents, "html5lib")
+    soup.prettify()
+    name = soup.select("span.provider-name")
+    saving_type = soup.find('h1')
+    dbHandler.insert_saving_plans(name,saving_type)
+    for i in range(0, len(name)):
+        print(saving_type.text)
         print(name[i].text)
-        print(rate[i].text)
-
