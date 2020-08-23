@@ -40,13 +40,13 @@ def first_step():
     password = request.form['password']
     resp = dbHandler.login(userName=email, Password=password)
     file = codecs.open("HISA.html", 'r', 'utf-8')
-    web_scraping_utilities.scrape_page(file)
+    dict_saving_plans_HISA = web_scraping_utilities.scrape_page(file)
     file = codecs.open("RRSP.html", 'r', 'utf-8')
-    web_scraping_utilities.scrape_page(file)
+    dict_saving_plans_RRSP=web_scraping_utilities.scrape_page(file)
     file = codecs.open("TFSA.html", 'r', 'utf-8')
-    web_scraping_utilities.scrape_page(file)
+    dict_saving_plans_TFSA=web_scraping_utilities.scrape_page(file)
     file = codecs.open("YOUTH.html", 'r', 'utf-8')
-    web_scraping_utilities.scrape_page(file)
+    dict_saving_plans_YOUTH = web_scraping_utilities.scrape_page(file)
     
     if resp == LOGIN_STATE.USER_DOESNT_EXIST:
         print("user doesn't exist. Would you like to sign up?") ## Add an error text, but don't redirect
