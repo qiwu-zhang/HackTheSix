@@ -1,7 +1,7 @@
 import os
 import requests
 from bs4 import BeautifulSoup
-
+import codecs
 import base64
 import datetime
 import plaid
