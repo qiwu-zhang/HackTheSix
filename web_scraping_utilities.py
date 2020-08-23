@@ -22,7 +22,8 @@ def scrape_page(page_contents: str):
     soup.prettify()
     name = soup.select("span.provider-name")
     saving_type = soup.find('h1')
-    dbHandler.insert_saving_plans(name,saving_type)
+
     for i in range(0, len(name)):
         print(saving_type.text)
         print(name[i].text)
+        dbHandler.insert_saving_plans(name=name[i].text, type=saving_type.text)

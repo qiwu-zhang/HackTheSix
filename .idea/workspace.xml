@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="011e5ff4-bf36-4f74-b761-fca88af5c640" name="Default Changelist" comment="fixed data scraping function">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LoginInfo.db" beforeDir="false" afterPath="$PROJECT_DIR$/LoginInfo.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_utilities.py" beforeDir="false" afterPath="$PROJECT_DIR$/database_utilities.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_scraping_utilities.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_scraping_utilities.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JupyterTrust" id="b16c6b0f-fa48-4028-841d-d7d2d70d5497" />
+  <component name="ProjectId" id="1gTfzYzjOr1ngDUrcV5OewwCjf6" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="sqlite" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunManager" selected="Flask server.Flask">
+    <configuration name="HackTheSix" type="PythonConfigurationType" factoryName="Python">
+      <module name="HackTheSix" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="011e5ff4-bf36-4f74-b761-fca88af5c640" name="Default Changelist" comment="" />
+      <created>1598143767588</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1598143767588</updated>
+      <workItem from="1598143768758" duration="186000" />
+      <workItem from="1598144062486" duration="1900000" />
+      <workItem from="1598146046850" duration="10571000" />
+      <workItem from="1598156839640" duration="1029000" />
+    </task>
+    <task id="LOCAL-00001" summary="fixed data scraping function">
+      <created>1598155722839</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1598155722839</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="fixed data scraping function" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed data scraping function" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="165" y="324" key="#SQL_Dialects" timestamp="1598157465624">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state x="165" y="324" key="#SQL_Dialects/0.0.1500.960@0.0.1500.960" timestamp="1598157465624" />
+    <state x="120" y="17" width="1148" height="881" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1598157493915">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state x="120" y="17" width="1148" height="881" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1500.960@0.0.1500.960" timestamp="1598157493915" />
+    <state x="301" y="276" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1598144721036">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state x="301" y="276" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1500.960@0.0.1500.960" timestamp="1598144721036" />
+    <state x="481" y="230" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1598154767662">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state x="481" y="230" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1500.960@0.0.1500.960" timestamp="1598154767662" />
+    <state x="660" y="280" key="EnvironmentVariablesDialog" timestamp="1598144532482">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state x="660" y="280" key="EnvironmentVariablesDialog/0.0.1500.960@0.0.1500.960" timestamp="1598144532482" />
+    <state x="574" y="273" key="FileChooserDialogImpl" timestamp="1598145129987">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state x="574" y="273" key="FileChooserDialogImpl/0.0.1500.960@0.0.1500.960" timestamp="1598145129987" />
+    <state width="1458" height="261" key="GridCell.Tab.0.bottom" timestamp="1598157866741">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state width="1458" height="261" key="GridCell.Tab.0.bottom/0.0.1500.960@0.0.1500.960" timestamp="1598157866741" />
+    <state width="1458" height="261" key="GridCell.Tab.0.center" timestamp="1598157866741">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state width="1458" height="261" key="GridCell.Tab.0.center/0.0.1500.960@0.0.1500.960" timestamp="1598157866741" />
+    <state width="1458" height="261" key="GridCell.Tab.0.left" timestamp="1598157866741">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state width="1458" height="261" key="GridCell.Tab.0.left/0.0.1500.960@0.0.1500.960" timestamp="1598157866741" />
+    <state width="1458" height="261" key="GridCell.Tab.0.right" timestamp="1598157866741">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state width="1458" height="261" key="GridCell.Tab.0.right/0.0.1500.960@0.0.1500.960" timestamp="1598157866741" />
+    <state width="196" height="457" key="HiddenNamespacesPopup" timestamp="1598146664739">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state width="196" height="457" key="HiddenNamespacesPopup/0.0.1500.960@0.0.1500.960" timestamp="1598146664739" />
+    <state x="79" y="254" key="SettingsEditor" timestamp="1598151165090">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state x="79" y="254" key="SettingsEditor/0.0.1500.960@0.0.1500.960" timestamp="1598151165090" />
+    <state x="343" y="216" key="Vcs.Push.Dialog.v2" timestamp="1598155761105">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state x="343" y="216" key="Vcs.Push.Dialog.v2/0.0.1500.960@0.0.1500.960" timestamp="1598155761105" />
+    <state x="801" y="286" width="582" height="511" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1598155315664">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state x="801" y="286" width="582" height="511" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1500.960@0.0.1500.960" timestamp="1598155315664" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/HackTheSix$HackTheSix.coverage" NAME="HackTheSix Coverage Results" MODIFIED="1598146102062" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/HackTheSix$Flask.coverage" NAME="Flask Coverage Results" MODIFIED="1598157866722" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>

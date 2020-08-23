@@ -43,6 +43,7 @@ def first_step():
 
     else:
         print("scraping web")
+        dbHandler.create_table_saving_plans()
         file = codecs.open("HISA.html", 'r', 'utf-8')
         web_scraping_utilities.scrape_page(file)
         file = codecs.open("RRSP.html", 'r', 'utf-8')
@@ -51,7 +52,6 @@ def first_step():
         web_scraping_utilities.scrape_page(file)
         file = codecs.open("YOUTH.html", 'r', 'utf-8')
         web_scraping_utilities.scrape_page(file)
-
         return render_template('signlog.html')
 
 
@@ -116,6 +116,7 @@ def results():
 if __name__ == '__main__':
     os.chdir(os.path.dirname(__file__))
     path = os.path.join(os.getcwd(), "LoginInfo.db")
+
     dbHandler.create_table()
     dbHandler.create_table_saving_plans()
     app.run()

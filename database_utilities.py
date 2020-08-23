@@ -21,6 +21,7 @@ def create_table():
 
 
 def create_table_saving_plans():
+    print("saving plans table created")
     cur.execute("drop table if exists savingPlans")
     ddl = "create table savingPlans(name text not null,type text not null,rate integer default 2 constraint savingPlans_pk primary key autoincrement);"
     cur.execute(ddl)
@@ -34,8 +35,10 @@ def insert_User(userName: str, Password: str):
 
     conn.commit()
 
-def insert_saving_plans(name:str,type:str):
+
+def insert_saving_plans(name: str, type: str):
     cur.execute("insert into savingPlans(name, type) values (?,?)", (name, type))
+    conn.commit()
 
 
 def login(userName: str, Password: str):
