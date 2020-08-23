@@ -16,6 +16,7 @@ import {
   Switch,
   Route,
   useRouteMatch, useLocation,
+  useHistory
 } from "react-router-dom";
 
 const useStyles = makeStyles({
@@ -32,40 +33,46 @@ const LinkNoUnderline = ({path}) => {
 };
 
 const MainListItems = ({pathName}) => {
-  const location = useLocation();
+  const history = useHistory();
   const classes = useStyles();
   let {path, url} = useRouteMatch();
   return (
   <React.Fragment>
-    <ListItem className={classes.listItem}button>
+    <ListItem className={classes.listItem} onClick={() => history.push(`/${pathName}`)}onCLickbutton>
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
-      <Link to={`/${pathName}`}><ListItemText primary="Dashboard"/></Link>
+      <ListItemText primary="Dashboard"/>
     </ListItem>
-    <ListItem className={classes.listItem}button>
+    <ListItem className={classes.listItem} onClick={() => history.push(`/${pathName}/stocks`)}button>
       <ListItemIcon>
         <ShoppingCartIcon />
       </ListItemIcon>
-      <Link to={`/${pathName}/stocks`}><ListItemText primary="Stocks"/></Link>
+      <ListItemText primary="Stocks"/>
     </ListItem>
-    <ListItem className={classes.listItem}button>
+    <ListItem className={classes.listItem} onClick={() => history.push(`/${pathName}/transactions`)}button>
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>
-      <Link to={`/${pathName}/transactions`}><ListItemText primary="Transactions"/></Link>
+      <ListItemText primary="Transactions"/>
     </ListItem>
-    <ListItem className={classes.listItem}button>
+    <ListItem className={classes.listItem}  onClick={() => history.push(`/${pathName}/reports`)} button>
       <ListItemIcon>
         <BarChartIcon />
       </ListItemIcon>
-      <Link to={`/${pathName}/reports`}><ListItemText primary="Reports"/></Link>
+      <ListItemText primary="Reports"/>
     </ListItem>
-    <ListItem className={classes.listItem}button>
+    <ListItem className={classes.listItem} onClick={() => history.push(`/${pathName}/chatbot`)}button>
       <ListItemIcon>
         <LayersIcon />
       </ListItemIcon>
-      <Link to={`/${pathName}/chatbot`}><ListItemText primary="Chatbot"/></Link>
+      <ListItemText primary="Chatbot"/>
+    </ListItem>
+    <ListItem className={classes.listItem} onClick={() => history.push(`/${pathName}/savingsplans`)}button>
+      <ListItemIcon>
+        <LayersIcon />
+      </ListItemIcon>
+      <ListItemText primary="Savings Plans"/>
     </ListItem>
   </React.Fragment>);
 };

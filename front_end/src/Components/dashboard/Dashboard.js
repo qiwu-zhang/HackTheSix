@@ -29,6 +29,7 @@ import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 
 // import Chart from "./Chart";
 import Transactions from "./Transactions";
+import Reports from "./Reports";
 
 const drawerWidth = 240;
 
@@ -210,6 +211,7 @@ export default function Dashboard() {
   let [pathName, setPathName] = useState(location.pathname.split("/").slice(-1)[0]);
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
+  const [transactions, setTransactions] = useState([]);
 
   useEffect(() => {
     async function load(){
@@ -225,6 +227,10 @@ export default function Dashboard() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+  const retrieveTransactions = (entries) => {
+      if (entries) setTransactions(entries);
+  }
 
   if (pathName.toLowerCase() !== "dashboard"){
     return (
@@ -277,9 +283,10 @@ export default function Dashboard() {
           <Container maxWidth="lg" className={classes.container}>
             <Route exact path={`/${pathName}`}><DashInfo/></Route>
             <Route exact path={`/${pathName}/stocks`}>Stocks</Route>
-            <Route exact path={`/${pathName}/transactions`}><Transactions/></Route>
-            <Route exact path={`/${pathName}/reports`}>Reports</Route>
+            <Route exact path={`/${pathName}/transactions`}><Transactions fetchTransactions={retrieveTransactions}/></Route>
+            <Route exact path={`/${pathName}/reports`}><Reports transactions={transactions}/></Route>
             <Route exact path={`/${pathName}/chatbot`}>Chatbot</Route>
+            <Route exact path={`/${pathName}/savingsplans`}>Savings Plans</Route>
             <Box pt={4}>
             </Box>
           </Container>

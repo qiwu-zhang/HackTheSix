@@ -5,4 +5,4 @@ PLAID_SECRET=8a93ca80daf1eef77524335027fe7e \
 PLAID_PRODUCTS=transactions \
 PLAID_COUNTRY_CODES=US \
 PLAID_ENV=sandbox \
-python pServer.py
+python app.py

@@ -1,7 +1,7 @@
 import os
 import requests
 from bs4 import BeautifulSoup
-
+from wordSimilarity import process_transaction_response
 import base64
 import datetime
 import plaid
@@ -85,17 +85,45 @@ client = plaid.Client(client_id=PLAID_CLIENT_ID,
                       secret=PLAID_SECRET,
                       environment=PLAID_ENV,
                       api_version='2019-05-29')
+
+
+# This is an endpoint defined for the OAuth flow to redirect to.
+@app.route('/oauth-response.html')
+def oauth_response():
+  return render_template(
+    'oauth-response.html',
+  )
+
+# We store the access_token in memory - in production, store it in a secure
+# persistent data store.
+access_token = None
+# The payment_id is only relevant for the UK Payment Initiation product.
+# We store the payment_id in memory - in production, store it in a secure
+# persistent data store.
+payment_id = None
+
+item_id = None
+
+@app.route('/api/info', methods=['POST'])
+def info():
+  global access_token
+  global item_id
+  return jsonify({
+    'item_id': item_id,
+    'access_token': access_token,
+    'products': PLAID_PRODUCTS
+  })
+
+
 @app.route('/api/create_link_token', methods=['POST'])
 def create_link_token():
   try:
-    # form = request.get_json()
     response = client.LinkToken.create(
       {
         'user': {
           # This should correspond to a unique id for the current user.
-          'client_user_id': PLAID_CLIENT_ID,
+          'client_user_id': 'user-id',
         },
-        "secret": PLAID_SECRET,
         'client_name': "Plaid Quickstart",
         'products': PLAID_PRODUCTS,
         'country_codes': PLAID_COUNTRY_CODES,
@@ -107,7 +135,7 @@ def create_link_token():
     return jsonify(response)
   except plaid.errors.PlaidError as e:
     return jsonify(format_error(e))
-    
+
 # Exchange token flow - exchange a Link public_token for
 # an API access_token
 # https://plaid.com/docs/#exchange-token-flow
@@ -115,7 +143,8 @@ def create_link_token():
 def get_access_token():
   global access_token
   global item_id
-  public_token = request.form['public_token']
+  obj = request.get_json()
+  public_token = obj['public_token']
   try:
     exchange_response = client.Item.public_token.exchange(public_token)
   except plaid.errors.PlaidError as e:
@@ -126,6 +155,17 @@ def get_access_token():
   item_id = exchange_response['item_id']
   return jsonify(exchange_response)
 
+# Retrieve ACH or ETF account numbers for an Item
+# https://plaid.com/docs/#auth
+@app.route('/api/auth', methods=['GET'])
+def get_auth():
+  try:
+    auth_response = client.Auth.get(access_token)
+  except plaid.errors.PlaidError as e:
+    return jsonify({'error': {'display_message': e.display_message, 'error_code': e.code, 'error_type': e.type } })
+  pretty_print_response(auth_response)
+  return jsonify(auth_response)
+
 # Retrieve Transactions for an Item
 # https://plaid.com/docs/#transactions
 @app.route('/api/transactions', methods=['GET'])
@@ -135,13 +175,155 @@ def get_transactions():
   end_date = '{:%Y-%m-%d}'.format(datetime.datetime.now())
   try:
     transactions_response = client.Transactions.get(access_token, start_date, end_date)
+    process_transaction_response(transactions_response)
   except plaid.errors.PlaidError as e:
     return jsonify(format_error(e))
   pretty_print_response(transactions_response)
   return jsonify(transactions_response)
 
+## Use Arbitrary Dates to Fetch Data From Arbitrary Times
+@app.route('/api/transactions', methods=['POST'])
+def get_limit_transactions():
+  jsonDates = request.get_json()
+  startDate = jsonDates["startDate"]
+  endDate = jsonDates["endDate"]
+  try:
+    transactions_response = client.Transactions.get(access_token, start_date, end_date)
+  except plaid.errors.PlaidError as e:
+    return jsonify(format_error(e))
+  pretty_print_response(transactions_response)
+  return jsonify(transactions_response)
+
+# Retrieve Identity data for an Item
+# https://plaid.com/docs/#identity
+@app.route('/api/identity', methods=['GET'])
+def get_identity():
+  try:
+    identity_response = client.Identity.get(access_token)
+  except plaid.errors.PlaidError as e:
+    return jsonify({'error': {'display_message': e.display_message, 'error_code': e.code, 'error_type': e.type } })
+  pretty_print_response(identity_response)
+  return jsonify({'error': None, 'identity': identity_response['accounts']})
+
+# Retrieve real-time balance data for each of an Item's accounts
+# https://plaid.com/docs/#balance
+@app.route('/api/balance', methods=['GET'])
+def get_balance():
+  try:
+    balance_response = client.Accounts.balance.get(access_token)
+  except plaid.errors.PlaidError as e:
+    return jsonify({'error': {'display_message': e.display_message, 'error_code': e.code, 'error_type': e.type } })
+  pretty_print_response(balance_response)
+  return jsonify(balance_response)
+
+# Retrieve an Item's accounts
+# https://plaid.com/docs/#accounts
+@app.route('/api/accounts', methods=['GET'])
+def get_accounts():
+  try:
+    accounts_response = client.Accounts.get(access_token)
+  except plaid.errors.PlaidError as e:
+    return jsonify({'error': {'display_message': e.display_message, 'error_code': e.code, 'error_type': e.type } })
+  pretty_print_response(accounts_response)
+  return jsonify(accounts_response)
+
+# Create and then retrieve an Asset Report for one or more Items. Note that an
+# Asset Report can contain up to 100 items, but for simplicity we're only
+# including one Item here.
+# https://plaid.com/docs/#assets
+@app.route('/api/assets', methods=['GET'])
+def get_assets():
+  try:
+    asset_report_create_response = client.AssetReport.create([access_token], 10)
+  except plaid.errors.PlaidError as e:
+    return jsonify({'error': {'display_message': e.display_message, 'error_code': e.code, 'error_type': e.type } })
+  pretty_print_response(asset_report_create_response)
+
+  asset_report_token = asset_report_create_response['asset_report_token']
+
+  # Poll for the completion of the Asset Report.
+  num_retries_remaining = 20
+  asset_report_json = None
+  while num_retries_remaining > 0:
+    try:
+      asset_report_get_response = client.AssetReport.get(asset_report_token)
+      asset_report_json = asset_report_get_response['report']
+      break
+    except plaid.errors.PlaidError as e:
+      if e.code == 'PRODUCT_NOT_READY':
+        num_retries_remaining -= 1
+        time.sleep(1)
+        continue
+      return jsonify({'error': {'display_message': e.display_message, 'error_code': e.code, 'error_type': e.type } })
+
+  if asset_report_json == None:
+    return jsonify({'error': {'display_message': 'Timed out when polling for Asset Report', 'error_code': e.code, 'error_type': e.type } })
+
+  asset_report_pdf = None
+  try:
+    asset_report_pdf = client.AssetReport.get_pdf(asset_report_token)
+  except plaid.errors.PlaidError as e:
+    return jsonify({'error': {'display_message': e.display_message, 'error_code': e.code, 'error_type': e.type } })
+
+  return jsonify({
+    'error': None,
+    'json': asset_report_json,
+    'pdf': base64.b64encode(asset_report_pdf),
+  })
+
+# Retrieve investment holdings data for an Item
+# https://plaid.com/docs/#investments
+@app.route('/api/holdings', methods=['GET'])
+def get_holdings():
+  try:
+    holdings_response = client.Holdings.get(access_token)
+  except plaid.errors.PlaidError as e:
+    return jsonify({'error': {'display_message': e.display_message, 'error_code': e.code, 'error_type': e.type } })
+  pretty_print_response(holdings_response)
+  return jsonify({'error': None, 'holdings': holdings_response})
+
+# Retrieve Investment Transactions for an Item
+# https://plaid.com/docs/#investments
+@app.route('/api/investment_transactions', methods=['GET'])
+def get_investment_transactions():
+  # Pull transactions for the last 30 days
+  start_date = '{:%Y-%m-%d}'.format(datetime.datetime.now() + datetime.timedelta(-30))
+  end_date = '{:%Y-%m-%d}'.format(datetime.datetime.now())
+  try:
+    investment_transactions_response = client.InvestmentTransactions.get(access_token,
+                                                                         start_date,
+                                                                         end_date)
+  except plaid.errors.PlaidError as e:
+    return jsonify(format_error(e))
+  pretty_print_response(investment_transactions_response)
+  return jsonify({'error': None, 'investment_transactions': investment_transactions_response})
+
+# This functionality is only relevant for the UK Payment Initiation product.
+# Retrieve Payment for a specified Payment ID
+@app.route('/api/payment', methods=['GET'])
+def payment():
+  global payment_id
+  payment_get_response = client.PaymentInitiation.get_payment(payment_id)
+  pretty_print_response(payment_get_response)
+  return jsonify({'error': None, 'payment': payment_get_response})
+
+# Retrieve high-level information about an Item
+# https://plaid.com/docs/#retrieve-item
+@app.route('/api/item', methods=['GET'])
+def item():
+  global access_token
+  item_response = client.Item.get(access_token)
+  institution_response = client.Institutions.get_by_id(item_response['item']['institution_id'])
+  pretty_print_response(item_response)
+  pretty_print_response(institution_response)
+  return jsonify({'error': None, 'item': item_response['item'], 'institution': institution_response['institution']})
+
 def pretty_print_response(response):
   print(json.dumps(response, indent=2, sort_keys=True))
+
+def format_error(e):
+  return {'error': {'display_message': e.display_message, 'error_code': e.code, 'error_type': e.type, 'error_message': e.message } }
+
 
 #################################################### WEB_SCRAPING ########################################################
 def main(url_list_file:str):
@@ -217,10 +399,10 @@ def format_error(e):
 
 
 if __name__ == '__main__':
-    os.chdir(os.path.dirname(__file__))
-    path = os.path.join(os.getcwd(), "LoginInfo.db")
-    dbHandler.create_table(database_path=path)
-    dbHandler.create_table_saving_plans("bankWebsite.txt")
-    app.run()
+    # os.chdir(os.path.dirname(__file__))
+    # path = os.path.join(os.getcwd(), "LoginInfo.db")
+    # dbHandler.create_table(database_path=path)
+    # dbHandler.create_table_saving_plans("bankWebsite.txt")
+    app.run(port=8000, debug=True)
 
 

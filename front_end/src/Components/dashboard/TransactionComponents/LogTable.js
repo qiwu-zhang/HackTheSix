@@ -6,17 +6,26 @@ import {
   TableHeaderRow,
 } from '@devexpress/dx-react-grid-material-ui';
 
-import {
-  generateRows,
-  globalSalesValues,
-} from '../../../demo-data/generator';
 
-export default ({data, ...restProps}) => {
-  const [columns] = useState(
-      {name : " "}
+export default (props) => {
+  const mapData = (data) => (
+    data.map((v, i) => ({ 
+      id: i,
+      description: v["name"],
+      amount: v["amount"],
+      date: v["date"],
+      category : v["category"].join(" / "),
+  }))
   );
-  const [rows] = useState(data);
+  const [columns] = useState([
+      {name : "description", title : "Description"},
+      {name : "amount", title : "Amount"},
+      {name : "date", title : "Date"},
+      {name : "category", title : "Category"}
+  ]);
+  const [rows] = useState(mapData(props.data));
 
+  console.log(rows);
   return (
     <Paper>
       <Grid
