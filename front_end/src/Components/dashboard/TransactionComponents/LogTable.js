@@ -13,7 +13,7 @@ import {
 
 export default ({data, ...restProps}) => {
   const [columns] = useState(
-      {name : ""}
+      {name : " "}
   );
   const [rows] = useState(data);
 

@@ -75,7 +75,7 @@ export default () => {
                     dispatch({type : "FORGETFUL"});
                     setNumFails(0);   
                 }
-            } else {
+            } else if (data === "Login Successful"){
                 dispatch({type : ""})
                 history.push(id);
             }
