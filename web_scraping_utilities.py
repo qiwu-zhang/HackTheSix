@@ -18,12 +18,18 @@ def load_urls_from_file(file_path: str):
 
 
 def scrape_page(page_contents: str):
+    savingPlan_list_name=[]
+    savingPlan_list_type = []
     soup = BeautifulSoup(page_contents, "html5lib")
     soup.prettify()
     name = soup.select("span.provider-name")
     saving_type = soup.find('h1')
 
     for i in range(0, len(name)):
-        print(saving_type.text)
-        print(name[i].text)
+        savingPlan_list_name.append(name[i].text)
+        savingPlan_list_type.append(saving_type)
         dbHandler.insert_saving_plans(name=name[i].text, type=saving_type.text)
+
+    dict_savingPlan = dict({1: savingPlan_list_name, 2: savingPlan_list_type})
+
+    return dict_savingPlan
