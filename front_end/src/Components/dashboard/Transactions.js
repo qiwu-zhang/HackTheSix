@@ -7,7 +7,8 @@ import Button from "@material-ui/core/Button";
 const Transactions = () => {
     const [publicTokenG, setPublicTokenG] = useState("");
     const [linkToken, setLinkToken] = useState("");
-    const [data, setData] = useState({});
+    const [transactions, setData] = useState({});
+    const [showData, setShowData] = useState(false);
         
     useEffect(() => {
         async function fetchData(){    
@@ -18,23 +19,28 @@ const Transactions = () => {
             })
             .then(data => setLinkToken(data["link_token"]));
 
-            await axios.post("/api/set_access_token", { public_token: token });
-            setPublicTokenG(token);
+            await axios.post("/api/set_access_token", { public_token: linkToken });
+            setPublicTokenG(linkToken);
 
-            await fetch("/")
+            await fetch("/api/transactions", {method : "POST"}).then((response) => {
+                if (response.ok)  return response.json()
+                else alert("Not ok!"); return;
+            })
+            .then(data => setData(transactions));
         }
         fetchData();
     }, []);
     
 
-    if (linkToken)
+    if (Object.keys(transactions).length > 0)
         return (
+          <React.Fragment>
           <Button
-            token={linkToken}
-            onClick={onSuccess}
+            onClick = {() => setShowData(true)}
           >
             Get Data
           </Button>
+          </React.Fragment>
         );
 
     return <Loading/>;

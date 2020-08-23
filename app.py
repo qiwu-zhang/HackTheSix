@@ -32,13 +32,6 @@ def before_request():
     dbHandler.make_connection()
 
 
-@app.route('scraping', methods=['GET'])
-def scrapeWeb():
-    print("scraping web")
-    urls = web_scraping_utilities.load_urls_from_file("bankWebsite.txt")
-    for url in urls:
-    web_scraping_utilities.scrape_page(url=url)
-
 @app.route('/login', methods=['POST'])
 def first_step():
     email = request.form['email']
@@ -133,10 +126,24 @@ def get_access_token():
   item_id = exchange_response['item_id']
   return jsonify(exchange_response)
 
+# Retrieve Transactions for an Item
+# https://plaid.com/docs/#transactions
+@app.route('/api/transactions', methods=['GET'])
+def get_transactions():
+  # Pull transactions for the last 30 days
+  start_date = '{:%Y-%m-%d}'.format(datetime.datetime.now() + datetime.timedelta(-30))
+  end_date = '{:%Y-%m-%d}'.format(datetime.datetime.now())
+  try:
+    transactions_response = client.Transactions.get(access_token, start_date, end_date)
+  except plaid.errors.PlaidError as e:
+    return jsonify(format_error(e))
+  pretty_print_response(transactions_response)
+  return jsonify(transactions_response)
+
 def pretty_print_response(response):
   print(json.dumps(response, indent=2, sort_keys=True))
 
-<<<<<<< HEAD
+#################################################### WEB_SCRAPING ########################################################
 def main(url_list_file:str):
     print("scraping web")
     urls = web_scraping_utilities.load_urls_from_file(url_list_file)
@@ -144,6 +151,12 @@ def main(url_list_file:str):
         page_content = web_scraping_utilities.load_page(url=url)
         web_scraping_utilities.scrape_page(page_content)
 
+@app.route('/scraping', methods=['GET'])
+def scrapeWeb():
+    print("scraping web")
+    urls = web_scraping_utilities.load_urls_from_file("bankWebsite.txt")
+    for url in urls:
+        web_scraping_utilities.scrape_page(url=url)
 
 @app.route('/inputForm', methods = ["GET", "POST"])
 def input_form():
@@ -199,12 +212,6 @@ def results():
     return render_template("results.html", currData=currData)
 
 
-
-
-
-
-
-=======
 def format_error(e):
   return {'error': {'display_message': e.display_message, 'error_code': e.code, 'error_type': e.type, 'error_message': e.message } }
 
@@ -214,7 +221,6 @@ if __name__ == '__main__':
     path = os.path.join(os.getcwd(), "LoginInfo.db")
     dbHandler.create_table(database_path=path)
     dbHandler.create_table_saving_plans("bankWebsite.txt")
->>>>>>> HarrisReact
     app.run()
 
 
