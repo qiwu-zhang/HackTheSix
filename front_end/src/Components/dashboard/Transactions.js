@@ -7,8 +7,10 @@ import Button from "@material-ui/core/Button";
 const Transactions = () => {
     const [publicTokenG, setPublicTokenG] = useState("");
     const [linkToken, setLinkToken] = useState("");
-    const [transactions, setData] = useState({});
-    const [showData, setShowData] = useState(false);
+    const onSuccess = useCallback((token, metadata) => {
+        axios.post("/api/set_access_token", { public_token: token });
+        setPublicTokenG(token);
+    }, []);
         
     useEffect(() => {
         async function fetchData(){    
@@ -18,29 +20,19 @@ const Transactions = () => {
                 else alert("Not ok!"); return;
             })
             .then(data => setLinkToken(data["link_token"]));
-
-            await axios.post("/api/set_access_token", { public_token: linkToken });
-            setPublicTokenG(linkToken);
-
-            await fetch("/api/transactions", {method : "POST"}).then((response) => {
-                if (response.ok)  return response.json()
-                else alert("Not ok!"); return;
-            })
-            .then(data => setData(transactions));
         }
         fetchData();
     }, []);
     
 
-    if (Object.keys(transactions).length > 0)
+    if (linkToken)
         return (
-          <React.Fragment>
-          <Button
-            onClick = {() => setShowData(true)}
+          <PlaidLink
+            token={linkToken}
+            onSuccess={onSuccess}
           >
-            Get Data
-          </Button>
-          </React.Fragment>
+            Connect to Your Bank Account
+          </PlaidLink>
         );
 
     return <Loading/>;

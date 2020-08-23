@@ -276,11 +276,11 @@ export default function Dashboard() {
           <div className={classes.appBarSpacer} />
           <Container maxWidth="lg" className={classes.container}>
             <Route exact path={`/${pathName}`}><DashInfo/></Route>
-            <Route exact path={`/${pathName}/stocks`}><Transactions/></Route>
-            <Route exact path={`/${pathName}/transactions`}>Transactions</Route>
+            <Route exact path={`/${pathName}/stocks`}>Stocks</Route>
+            <Route exact path={`/${pathName}/transactions`}><Transactions/></Route>
             <Route exact path={`/${pathName}/reports`}>Reports</Route>
             <Route exact path={`/${pathName}/chatbot`}>Chatbot</Route>
-            <Box pt={4}>/
+            <Box pt={4}>
             </Box>
           </Container>
           <Copyright />
