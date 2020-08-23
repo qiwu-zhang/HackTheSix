@@ -54,7 +54,35 @@ def first_step():
         return "Login Unsuccessful"
     elif resp == LOGIN_STATE.USER_EXISTS:
         return "Login Successful"
+########################################################### SAVING #########################################################
+@app.route('/saving', methods=['GET'])
+def saving():
+    list_name = []
+    list_type = []
+    dbHandler.create_table_saving_plans()
 
+    file = codecs.open("HISA.html", 'r', 'utf-8')
+    dict_saving_plans_HISA = web_scraping_utilities.scrape_page(file)
+    list_name.extend(dict_saving_plans_HISA[1])
+    list_type.extend(dict_saving_plans_HISA[2])
+
+    file = codecs.open("RRSP.html", 'r', 'utf-8')
+    dict_saving_plans_RRSP = web_scraping_utilities.scrape_page(file)
+    list_name.extend(dict_saving_plans_RRSP[1])
+    list_type.extend(dict_saving_plans_RRSP[2])
+
+    file = codecs.open("TFSA.html", 'r', 'utf-8')
+    dict_saving_plans_TFSA = web_scraping_utilities.scrape_page(file)
+    list_name.extend(dict_saving_plans_TFSA[1])
+    list_type.extend(dict_saving_plans_TFSA[2])
+
+    file = codecs.open("YOUTH.html", 'r', 'utf-8')
+    dict_saving_plans_YOUTH = web_scraping_utilities.scrape_page(file)
+    list_name.extend(dict_saving_plans_YOUTH[1])
+    list_type.extend(dict_saving_plans_YOUTH[2])
+
+    complete_dict = dict({1: list_name, 2: list_type})
+    return complete_dict
 
 ########################################################### PLAID #########################################################
 
